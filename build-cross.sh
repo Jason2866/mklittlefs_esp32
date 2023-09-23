@@ -17,7 +17,8 @@ build ()
         tarball=${pfx}-$name.zip
     fi
     ( echo '            {' &&
-      echo '              "description": "mklittlefs32",' &&
+      echo '              "type": "tool",' &&
+      echo '              "description": "tool-mklittlefs32",' &&
       echo '              "version": "2.'${rel}'",' &&
       echo '              "system": "'$AHOST'",' &&
       echo '              "url": "https://github.com/Jason2866/mklittlefs/releases/download/'${rel}'/'${tarball}'"' &&
