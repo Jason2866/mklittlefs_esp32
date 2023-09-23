@@ -11,6 +11,11 @@ build ()
     mkdir -p tmp/mklittlefs
     mv mklittlefs${exe} tmp/mklittlefs/.
     cd tmp
+    if [ "${exe}" == "" ]; then
+        tarball=${pfx}-$name.tar.gz
+    else
+        tarball=${pfx}-$name.zip
+    fi
     ( echo '            {' &&
       echo '              "description": "mklittlefs32",' &&
       echo '              "version": "2.'${rel}'",' &&
@@ -18,10 +23,8 @@ build ()
       echo '              "url": "https://github.com/Jason2866/mklittlefs/releases/download/'${rel}'/'${tarball}'",' &&
       echo '            }') > mklittlefs/${tarball}.json
     if [ "${exe}" == "" ]; then
-        tarball=${pfx}-$name.tar.gz
         tar zcvf ../${tarball} mklittlefs
     else
-        tarball=${pfx}-$name.zip
         zip -rq ../${tarball} mklittlefs
     fi
     cd ..
