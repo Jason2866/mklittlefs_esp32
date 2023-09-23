@@ -17,11 +17,12 @@ build ()
         tarball=${pfx}-$name.zip
     fi
     ( echo '            {' &&
-      echo '              "type": "tool",' &&
-      echo '              "description": "tool-mklittlefs",' &&
+      echo '              "name": "tool-mklittlefs",' &&
       echo '              "version": "2.'${rel}'",' &&
+      echo '              "description": "Utility for creating LittleFS images",' &&
+      echo '              "keywords": "["tools","build tools","filesystem"]",' &&
       echo '              "system": "'$AHOST'",' &&
-      echo '              "url": "https://github.com/Jason2866/mklittlefs/releases/download/'${rel}'/'${tarball}'"' &&
+      echo '              "repository": "{"type": "git","url": "https://github.com/jason2866/mklittlefs"}"' &&
       echo '            }') > mklittlefs/package.json
     if [ "${exe}" == "" ]; then
         tar zcvf ../${tarball} mklittlefs
