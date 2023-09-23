@@ -18,7 +18,7 @@ build ()
     fi
     ( echo '            {' &&
       echo '              "type": "tool",' &&
-      echo '              "description": "tool-mklittlefs32",' &&
+      echo '              "description": "tool-mklittlefs",' &&
       echo '              "version": "2.'${rel}'",' &&
       echo '              "system": "'$AHOST'",' &&
       echo '              "url": "https://github.com/Jason2866/mklittlefs/releases/download/'${rel}'/'${tarball}'"' &&
