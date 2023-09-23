@@ -10,6 +10,7 @@ build ()
     rm -rf tmp
     mkdir -p tmp/mklittlefs
     mv mklittlefs${exe} tmp/mklittlefs/.
+    ls -R ./
     cd tmp
     if [ "${exe}" == "" ]; then
         tarball=${pfx}-$name.tar.gz
