@@ -75,8 +75,8 @@ override CPPFLAGS := \
 	-D LFS_NAME_MAX=64 \
 	$(CPPFLAGS)
 
-override CFLAGS := -std=gnu99 -Os -Wall $(TARGET_CFLAGS) $(CFLAGS)
-override CXXFLAGS := -std=gnu++11 -Os -Wall $(TARGET_CXXFLAGS) $(CXXFLAGS)
+override CFLAGS := -std=gnu99 -Os -Wall -Wextra -Werror $(TARGET_CFLAGS) $(CFLAGS)
+override CXXFLAGS := -std=gnu++11 -Os -Wall -Wextra -Werror $(TARGET_CXXFLAGS) $(CXXFLAGS)
 override LDFLAGS := $(TARGET_LDFLAGS) $(LDFLAGS)
 
 DIST_NAME := mklittlefs-$(VERSION)$(BUILD_CONFIG_NAME)-$(TARGET_OS)
@@ -104,4 +104,7 @@ clean:
 format-check: $(DIFF_FILES)
 	@rm -f $(DIFF_FILES)
 
-.PHONY: all clean dist format-check
+test: $(TARGET)
+	@./run_tests.sh tests
+
+.PHONY: all clean dist format-check test
