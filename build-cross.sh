@@ -11,6 +11,12 @@ build ()
     mkdir -p tmp/mklittlefs
     mv mklittlefs${exe} tmp/mklittlefs/.
     cd tmp
+    ( echo '            {' &&
+      echo '              "description": "mklittlefs32",' &&
+      echo '              "version": "2.'${rel}'",' &&
+      echo '              "system": "'$AHOST'",' &&
+      echo '              "url": "https://github.com/Jason2866/mklittlefs/releases/download/'${rel}'/'${tarball}'",' &&
+      echo '            }') > mklittlefs/${tarball}.json
     if [ "${exe}" == "" ]; then
         tarball=${pfx}-$name.tar.gz
         tar zcvf ../${tarball} mklittlefs
@@ -19,14 +25,6 @@ build ()
         zip -rq ../${tarball} mklittlefs
     fi
     cd ..
-    rm -rf tmp
-    ( echo '            {' &&
-      echo '              "description": "mklittlefs32",' &&
-      echo '              "version": "2.'${rel}'",' &&
-      echo '              "system": "'$AHOST'",' &&
-      echo '              "url": "https://github.com/Jason2866/mklittlefs/releases/download/'${rel}'/'${tarball}'",' &&
-      echo '            }') > ${tarball}.json
-      ls -R ./
 )}
 
 tgt=osx pfx=x86_64-apple-darwin14 exe="" AHOST="['darwin_x86_64','darwin_arm64']" build
