@@ -33,7 +33,7 @@ build ()
     cd ..
 )}
 
-tgt=osx pfx=x86_64-apple-darwin15 exe="" AHOST='["darwin_x86_64","darwin_arm64"]' build
+tgt=osx pfx=x86_64-apple-darwin14 exe="" AHOST='["darwin_x86_64","darwin_arm64"]' build
 tgt=windows pfx=x86_64-w64-mingw32 exe=".exe" AHOST="windows_amd64" build
 tgt=windows pfx=i686-w64-mingw32 exe=".exe" AHOST="windows_x86" build
 tgt=linux pfx=arm-linux-gnueabihf exe="" AHOST="linux_armv6l" build
