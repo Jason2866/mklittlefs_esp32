@@ -1,6 +1,6 @@
 #!/bin/bash
 name=mklittlefs-$(git rev-parse --short HEAD)
-rel=${rel:=030100}
+rel=${rel:=030200}
 
 rm -f *.json *.gz *.zip
 
