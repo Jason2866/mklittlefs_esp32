@@ -22,7 +22,7 @@ build ()
       echo '              "version": "2.'${rel}'",' &&
       echo '              "system": "'$AHOST'",' &&
       echo '              "url": "https://github.com/Jason2866/mklittlefs/releases/download/'${rel}'/'${tarball}'"' &&
-      echo '            }') > mklittlefs/${tarball}.json
+      echo '            }') > mklittlefs/package.json
     if [ "${exe}" == "" ]; then
         tar zcvf ../${tarball} mklittlefs
     else
