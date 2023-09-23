@@ -1,4 +1,4 @@
-name: Build mklittlefs
+name: Build all mklittlefs with Docker
 
 on:
   workflow_dispatch:  # Manually start a workflow
@@ -6,7 +6,7 @@ on:
 jobs:
 
   mklittlefs_build:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     continue-on-error: true
     steps:
     - uses: actions/checkout@v3
@@ -14,13 +14,16 @@ jobs:
         submodules: recursive
     - name: Build mklittlefs
       run: |
-        ./build_all_configs.sh
+        docker run --user $(id -u):$(id -g) --rm -v $(pwd):/workdir earlephilhower/gcc-cross bash -c "cd /workdir; bash build-cross.sh"
+        ls -R ./
     - name: Release
       uses: jason2866/action-gh-release@v1.2
       with:
         tag_name: ${{ github.run_number }}
         prerelease: true
         files: |
-            mklittlefs-*
+            *.zip
+            *.gz
+            *.json
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
