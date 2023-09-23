@@ -20,9 +20,10 @@ build ()
       echo '              "name": "tool-mklittlefs",' &&
       echo '              "version": "2.'${rel}'",' &&
       echo '              "description": "Utility for creating LittleFS images for ESP32x SOCs",' &&
-      echo '              "keywords": "'['tools','build tools','filesystem']'",' &&
+      echo '              "keywords": ["tools","build tools","filesystem"],' &&
+      echo '              "license": "MIT",' &&
       echo '              "system": "'$AHOST'",' &&
-      echo '              "repository": "'{"type": "git","url": "https://github.com/jason2866/mklittlefs"}'"' &&
+      echo '              "repository": {"type": "git","url": "https://github.com/jason2866/mklittlefs"}' &&
       echo '            }') > mklittlefs/package.json
     if [ "${exe}" == "" ]; then
         tar zcvf ../${tarball} mklittlefs
