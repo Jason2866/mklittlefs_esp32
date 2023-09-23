@@ -19,8 +19,8 @@ build ()
     ( echo '            {' &&
       echo '              "name": "tool-mklittlefs",' &&
       echo '              "version": "2.'${rel}'",' &&
-      echo '              "description": "Utility for creating LittleFS images",' &&
-      echo '              "keywords": "["tools","build tools","filesystem"]",' &&
+      echo '              "description": "Utility for creating LittleFS images for ESP32x SOCs",' &&
+      echo '              "keywords": "['tools','build tools','filesystem']",' &&
       echo '              "system": "'$AHOST'",' &&
       echo '              "repository": "{"type": "git","url": "https://github.com/jason2866/mklittlefs"}"' &&
       echo '            }') > mklittlefs/package.json
