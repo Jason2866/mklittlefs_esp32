@@ -15,7 +15,6 @@ jobs:
     - name: Build mklittlefs
       run: |
         docker run --user $(id -u):$(id -g) --rm -v $(pwd):/workdir earlephilhower/gcc-cross bash -c "cd /workdir; bash build-cross.sh"
-        ls -R ./
     - name: Release
       uses: jason2866/action-gh-release@v1.2
       with:
