@@ -10,7 +10,6 @@ build ()
     rm -rf tmp
     mkdir -p tmp/mklittlefs
     mv mklittlefs${exe} tmp/mklittlefs/.
-    ls -R ./
     cd tmp
     if [ "${exe}" == "" ]; then
         tarball=${pfx}-$name.tar.gz
@@ -27,6 +26,7 @@ build ()
       echo '              "system": "'$AHOST'",' &&
       echo '              "url": "https://github.com/Jason2866/mklittlefs/releases/download/'${rel}'/'${tarball}'",' &&
       echo '            }') > ${tarball}.json
+      ls -R ./
 )}
 
 tgt=osx pfx=x86_64-apple-darwin14 exe="" AHOST="['darwin_x86_64','darwin_arm64']" build
