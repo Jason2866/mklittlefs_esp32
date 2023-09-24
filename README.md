@@ -1,4 +1,4 @@
-# mklittlefs
+# mklittlefs for esp32
 Tool to build and unpack [littlefs](https://github.com/ARMmbed/littlefs) images.
 Based off of [mkspiffs](https://github.com/igrr/mkspiffs) by Ivan Grokhotkov.
 
@@ -66,10 +66,10 @@ Some LittleFS options which are set at mklittlefs build time affect the format o
 
 These options include:
 
-  - LFS_NAME_MAX
+  - LFS_NAME_MAX (`32` for esp8266 and `64` for ESP32x)
   - possibly others
 
-To see the default values of these options, check `MAkefile` file in this repository.
+To see the default values of these options, check `Makefile` file in this repository.
 
 To override some options at build time, pass extra `CPPFLAGS` to `make`. You can also set `BUILD_CONFIG_NAME` variable to distinguish the built binary:
 
