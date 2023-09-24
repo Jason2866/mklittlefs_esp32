@@ -25,7 +25,7 @@
 
 extern "C" {
 #ifndef LFS_NAME_MAX
-#define LFS_NAME_MAX 64
+#define LFS_NAME_MAX 255
 #endif
 #include "littlefs/lfs.h"
 }
