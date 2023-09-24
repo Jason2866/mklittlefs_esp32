@@ -1,6 +1,6 @@
 #!/bin/bash
 name=mklittlefs-$(git rev-parse --short HEAD)
-rel=${rel:=030200}
+rel=${rel:=3.2.0}
 
 rm -f *.json *.gz *.zip
 
@@ -18,7 +18,7 @@ build ()
     fi
     ( echo '            {' &&
       echo '              "name": "tool-mklittlefs",' &&
-      echo '              "version": "2.'${rel}'",' &&
+      echo '              "version": "'${rel}'",' &&
       echo '              "description": "Utility for creating LittleFS images for ESP32x SOCs",' &&
       echo '              "keywords": ["tools","build tools","filesystem"],' &&
       echo '              "license": "MIT",' &&
