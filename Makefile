@@ -72,7 +72,7 @@ override CPPFLAGS := \
 	-D BUILD_CONFIG=\"$(BUILD_CONFIG_STR)\" \
 	-D BUILD_CONFIG_NAME=\"$(BUILD_CONFIG_NAME)\" \
 	-D __NO_INLINE__ \
-	-D LFS_NAME_MAX=255 \
+	-D LFS_NAME_MAX=64 \
 	$(CPPFLAGS)
 
 override CFLAGS := -std=gnu99 -Os -Wall -Wextra -Werror $(TARGET_CFLAGS) $(CFLAGS)
